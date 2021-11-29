@@ -12,6 +12,9 @@ const options = {
   cert: fs.readFileSync('cert.pem')
 };
 app.get('/',(req,res)=>res.send('ok'));
-app.post('/',(req,res)=>res.send('ok post'));
+app.post('/',(req,res)=>{
+let ret = '<scripts></scripts><input type="text" id="number" /><br><input type="button" id="btn" value="Send"/>';
+res.send(ret);
+});
 app.listen(7001);
 https.createServer(options,app).listen(7000);
